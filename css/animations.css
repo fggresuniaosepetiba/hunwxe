@@ -1,0 +1,78 @@
+/* ============================================
+   ANIMATIONS.CSS — Keyframes and Reduced Motion
+   GSAP handles all scroll-driven animations.
+   This file defines CSS keyframes for simple
+   looping effects and reduced-motion fallbacks.
+   ============================================ */
+
+/* ---------- Keyframes ---------- */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(45deg) translateY(8px);
+    opacity: 1;
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(184, 134, 11, 0);
+  }
+}
+
+/* ---------- Ken Burns on Hero ---------- */
+.hero__bg-img {
+  animation: kenBurns 25s ease-in-out infinite alternate;
+}
+
+/* ---------- Scroll Reveal Initial State ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* GSAP sets inline styles; .in-view marks completion */
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Timeline Marker Pulse ---------- */
+.timeline__item.in-view .timeline__marker {
+  animation: pulseGold 2s ease-in-out 1;
+}
+
+/* ---------- Prefers Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero__bg-img {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

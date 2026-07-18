@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hunwxenitazoji.com.br/sitemap.xml
