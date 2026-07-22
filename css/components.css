@@ -512,52 +512,53 @@
 /* ---------- LEADERS ---------- */
 .leaders {
   padding: var(--space-section) 0;
+  background: var(--color-bg-warm);
 }
 
-.leader {
+.leaders__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: center;
-  margin-bottom: var(--space-3xl);
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(3rem, 6vw, 5rem);
 }
 
-.leader:last-child {
-  margin-bottom: 0;
+.dir-leader {
+  text-align: center;
 }
 
-.leader--reverse {
-  direction: rtl;
-}
-
-.leader--reverse > * {
-  direction: ltr;
-}
-
-.leader__image-wrap {
-  position: relative;
-}
-
-.leader__photo {
+.dir-leader__photo-wrap {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  max-width: 320px;
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+  overflow: hidden;
   border-radius: var(--radius-lg);
-  transition: transform var(--duration-slow) var(--ease-out);
+  box-shadow: var(--shadow-md);
 }
 
-.leader__image-wrap:hover .leader__photo {
-  transform: scale(1.02);
+.dir-leader__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  transition: filter 0.8s var(--ease-out), transform 0.8s var(--ease-out);
 }
 
-.leader__name {
+.dir-leader__photo-wrap:hover .dir-leader__photo {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.dir-leader__name {
   font-family: var(--font-display);
   font-size: var(--fs-h3);
   font-weight: 400;
   margin-bottom: 0.25rem;
 }
 
-.leader__role {
+.dir-leader__role {
   font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: var(--ls-wider);
@@ -566,11 +567,33 @@
   margin-bottom: var(--space-lg);
 }
 
-.leader__bio {
+.dir-leader__bio {
   font-size: var(--fs-body);
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-md);
-  max-width: 480px;
+  margin-bottom: var(--space-sm);
+  max-width: 420px;
+  margin-inline: auto;
+  text-align: center;
+  line-height: var(--lh-body);
+}
+
+.dir-leader__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: var(--space-lg) auto;
+  opacity: 0.6;
+}
+
+.dir-leader__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  max-width: 380px;
+  margin-inline: auto;
+  line-height: var(--lh-heading);
 }
 
 /* ---------- ACTIVITIES ---------- */
@@ -860,6 +883,18 @@
   height: 1px;
   background: var(--color-gold);
   margin: var(--space-xl) auto 0;
+}
+
+.quote__author {
+  display: block;
+  margin-bottom: var(--space-md);
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: var(--color-gold);
 }
 
 /* ---------- GALLERY ---------- */

@@ -105,6 +105,7 @@
     quoteTl
       .fromTo('.quote__mark', { opacity: 0, scale: 0.5 }, { opacity: 0.3, scale: 1, duration: 0.8, ease: 'power3.out' })
       .fromTo('.quote__text', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.4')
+      .fromTo('.quote__author', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.2')
       .fromTo('.quote__line', { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'power3.out' }, '-=0.3');
   }
 
@@ -149,6 +150,25 @@
     if (title) {
       tl.fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3');
     }
+  });
+
+  /* ---------- Leaders Cards ---------- */
+  var leaderCards = document.querySelectorAll('.dir-leader');
+  leaderCards.forEach(function (card) {
+    gsap.fromTo(card,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          once: true
+        }
+      }
+    );
   });
 
 })();
