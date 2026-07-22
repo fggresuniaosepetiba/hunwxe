@@ -929,7 +929,7 @@
 
 /* ---------- GALLERY ---------- */
 .gallery {
-  padding: var(--space-section) 0;
+  padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
 .gallery .section-header {
