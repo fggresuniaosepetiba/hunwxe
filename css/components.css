@@ -932,6 +932,10 @@
   padding: var(--space-section) 0;
 }
 
+.gallery .section-header {
+  margin-bottom: var(--space-xl);
+}
+
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
