@@ -523,6 +523,9 @@
 
 .dir-leader {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dir-leader__photo-wrap {
@@ -586,14 +589,40 @@
 }
 
 .dir-leader__quote {
+  max-width: 420px;
+  width: 100%;
+  margin-top: auto;
+  min-height: 11rem;
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  border-left: 3px solid var(--color-gold);
+  border-right: 3px solid var(--color-gold);
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.04), rgba(184, 134, 11, 0.01));
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dir-leader__quote-text {
   font-family: var(--font-display);
   font-style: italic;
   font-size: var(--fs-h4);
   font-weight: 300;
   color: var(--color-text-secondary);
-  max-width: 380px;
-  margin-inline: auto;
   line-height: var(--lh-heading);
+  margin: 0 0 var(--space-md);
+}
+
+.dir-leader__quote-author {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wider);
+  color: var(--color-gold);
+  text-transform: uppercase;
 }
 
 /* ---------- ACTIVITIES ---------- */
